@@ -7,7 +7,6 @@ import { findByTestAttr, checkProps } from "../../test/testUtils";
 // Warning: Risky if props change in code then test passes becaus props are different
 const defaultProps = { success: false };
 
-
 // Setup function for wrapper @param {object} props @returns {ShalloWrapper}
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
@@ -32,7 +31,7 @@ test('renders non-empty congrats message when "success" is true', () => {
   expect(message.text().length).not.toBe(0);
 });
 
-test("does not  throw warning with expected props", () => {
+test("does not throw warning with expected props", () => {
   const expectedProps = { success: false };
   checkProps(Congrats, expectedProps);
 });

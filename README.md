@@ -4,6 +4,7 @@ Jotto game project from the course React Testing with Jest and Enzyme
 
 ## Work done
 
+- Abstractions: findByTestAttr in test/testUtils.js, checkProps in test/testUtils.js, Enzyme adaptar in setupTests.js
 
 
 ### Desarrollado por
@@ -21,5 +22,9 @@ Jotto game project from the course React Testing with Jest and Enzyme
 - Enzyme
 
 - ReactJs
+
+- PropTypes
+
+- CheckProptypes
 
 - Create React App
