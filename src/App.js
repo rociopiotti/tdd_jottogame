@@ -4,7 +4,7 @@ import Congrats from "./components/Congrats/Congrats";
 
 const App = () => {
   return (
-    <div className='container'>
+    <div className='container-sm'>
       <h1>Jotto Game</h1>
       <Congrats success={true} />
       <GeuessedWords
