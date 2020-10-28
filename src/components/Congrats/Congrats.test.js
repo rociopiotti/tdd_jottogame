@@ -3,11 +3,12 @@ import Enzyme, { shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import Congrats from "./Congrats";
 
+
 // set up for enzyme adapter ( not official for react version 17)
 Enzyme.configure({ adapter: new Adapter() });
 
 const setup = (props = {}) => {
-  return shallow(<Congrats {...props} />);
+    return shallow(<Congrats {...props}/>)
 };
 
 test("renders without errors", () => {});
