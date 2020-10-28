@@ -25,10 +25,12 @@ describe("If there are no words guessed", () => {
     const component = findByTestAttr(wrapper, "component-guest-words");
     expect(component.length).toBe(1);
   });
-  test("renders instraction to guess a word", () => {
+  test("renders instruction to guess a word", () => {
     const instructions = findByTestAttr(wrapper, "guess-instruction");
     expect(instructions.text().length).not.toBe(0)
   });
 });
 
-describe("If there are words guessed", () => {});
+describe("If there are words guessed", () => {
+
+});
