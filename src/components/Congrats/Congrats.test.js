@@ -5,15 +5,21 @@ import checkPropsTypes from "check-prop-types";
 import Congrats from "./Congrats";
 import { findByTestAttr, checkProps } from "../../test/testUtils";
 
+// DEFAULT PROPS FOR TESTING
+// Warning: Risky if props change in code then test passes becaus props are different
+const defaultProps = { success: false };
+
 // set up for enzyme adapter ( not official for react version 17)
 Enzyme.configure({ adapter: new Adapter() });
 
+// Setup function for wrapper @param {object} props @returns {ShalloWrapper}
 const setup = (props = {}) => {
-  return shallow(<Congrats {...props} />);
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />);
 };
 
 test("renders without errors", () => {
-  const wrapper = setup({ success: false });
+  const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-congrats");
   expect(component.length).toBe(1);
 });
