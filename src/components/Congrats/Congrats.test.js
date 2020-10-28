@@ -1,7 +1,5 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import checkPropsTypes from "check-prop-types";
+import { shallow } from "enzyme";
 import Congrats from "./Congrats";
 import { findByTestAttr, checkProps } from "../../test/testUtils";
 
@@ -9,8 +7,6 @@ import { findByTestAttr, checkProps } from "../../test/testUtils";
 // Warning: Risky if props change in code then test passes becaus props are different
 const defaultProps = { success: false };
 
-// set up for enzyme adapter ( not official for react version 17)
-Enzyme.configure({ adapter: new Adapter() });
 
 // Setup function for wrapper @param {object} props @returns {ShalloWrapper}
 const setup = (props = {}) => {
