@@ -5,7 +5,6 @@ import Input from "./Input";
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
-  const success = true;
   const wrapper = shallow(<Input store={store} />).dive();
   return wrapper;
 };
