@@ -5,24 +5,24 @@ import Input from "./Input";
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
-  const wrapper = shallow(<Input store={store} />)
+  const success = true;
+  const wrapper = shallow(<Input store={store} success={success} />)
     .dive()
-    .dive();
-  return wrapper;
-};
-
-describe("render", () => {
-  describe("Word has not been guessed", () => {
-    let wrapper;
-    beforeEach(() => {
-      const initialState = {
-        success: false,
-      };
-      wrapper = setup(initialState);
-    });
-    test("renders without error", () => {
-      const component = findByTestAttr(wrapper, "component-input");
-      expect(component.length).toBe(1);
+    return wrapper;
+  };
+  
+  describe("render", () => {
+    describe("Word has not been guessed", () => {
+      let wrapper;
+      beforeEach(() => {
+        const initialState = {
+          success: false,
+        };
+        wrapper = setup(initialState);
+      });
+      test("renders without error", () => {
+        const component = findByTestAttr(wrapper, "component-input");
+      expect(component.length).toBe(0);
     });
     test("renders input box", () => {
       const inputBox = findByTestAttr(wrapper, "input-box");
@@ -57,4 +57,3 @@ describe("render", () => {
   });
 });
 
-describe("update state", () => {});
