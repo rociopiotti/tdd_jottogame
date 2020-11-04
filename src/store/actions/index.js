@@ -1,5 +1,9 @@
 import  actionTypes  from "../types/types";
 
-export function correctGuess() {
-  return { type: actionTypes.CORRECT_GUESS };
+
+export const guessWord = ( guessedWord) => {
+  return function(dispatch, getState) {
+
+  }
 }
+
