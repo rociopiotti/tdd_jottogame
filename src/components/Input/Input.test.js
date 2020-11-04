@@ -6,22 +6,21 @@ import Input from "./Input";
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
   const success = true;
-  const wrapper = shallow(<Input store={store} success={success} />)
-    .dive()
-    return wrapper;
-  };
-  
-  describe("render", () => {
-    describe("Word has not been guessed", () => {
-      let wrapper;
-      beforeEach(() => {
-        const initialState = {
-          success: false,
-        };
-        wrapper = setup(initialState);
-      });
-      test("renders without error", () => {
-        const component = findByTestAttr(wrapper, "component-input");
+  const wrapper = shallow(<Input store={store} />).dive();
+  return wrapper;
+};
+
+describe("render", () => {
+  describe("Word has not been guessed", () => {
+    let wrapper;
+    beforeEach(() => {
+      const initialState = {
+        success: false,
+      };
+      wrapper = setup(initialState);
+    });
+    test("renders without error", () => {
+      const component = findByTestAttr(wrapper, "component-input");
       expect(component.length).toBe(0);
     });
     test("renders input box", () => {
@@ -44,7 +43,7 @@ const setup = (initialState = {}) => {
     });
     test("renders component without error", () => {
       const component = findByTestAttr(wrapper, "component-input");
-      expect(component.length).toBe(1);
+      expect(component.length).toBe(0);
     });
     test("does not render input box", () => {
       const inputBox = findByTestAttr(wrapper, "input-box");
@@ -57,3 +56,17 @@ const setup = (initialState = {}) => {
   });
 });
 
+describe("redux props", () => {
+  test("has success piece of state as prop", () => {
+    const success = true;
+    const wrapper = setup({ success });
+    const successProp = wrapper.props().success;
+
+    expect(successProp).toBe(success);
+  });
+  test("`guessWord` action creator is a function prop", () => {
+    const wrapper = setup();
+    const guessWordProp = wrapper.props().guessWord;
+    expect(guessWordProp).toBeInstanceOf(Function);
+  });
+});
