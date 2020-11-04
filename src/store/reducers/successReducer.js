@@ -5,7 +5,7 @@ const success = (state = false, action) => {
     case actionTypes.CORRECT_GUESS:
       return true;
     default:
-      return false;
+      return state;
   }
 };
 export default success;
