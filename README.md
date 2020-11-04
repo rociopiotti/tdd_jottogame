@@ -1,11 +1,12 @@
 # Jotto Game testing with Jest and Enzyme
 
-Jotto game project from the course React Testing with Jest and Enzyme 
+Jotto game project from the course React Testing with Jest and Enzyme
 
 ## Work done
 
 - Abstractions: findByTestAttr in test/testUtils.js, checkProps in test/testUtils.js, Enzyme adaptar in setupTests.js
-
+- Setup for connected component with store using .dive() method to get the child component from HOC.
+- Create a storeFactory for each test which use the app settings (reducers and middleware).
 
 ### Desarrollado por
 
