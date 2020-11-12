@@ -1,7 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { findByTestAttr, storeFactory } from "./test/testUtils";
+import enableHooks from "jest-react-hooks-shallow";
+
+import { storeFactory } from "./test/testUtils";
 import App from "./App";
+import UnconnectedApp from "./App";
 
 const setup = (state = {}) => {
   const store = storeFactory(state);
@@ -30,8 +33,30 @@ describe("redux props", () => {
     expect(guessedWordsProps).toEqual(guessedWords);
   });
   test("`getSecretWord` action creator is a function on the prop", () => {
-      const wrapper = setup();
-      const getSecretWordProp = wrapper.props().getSecretWord
-    expect(getSecretWordProp).toBeInstanceOf(Function);      
+    const wrapper = setup();
+    const getSecretWordProp = wrapper.props().getSecretWord;
+    expect(getSecretWordProp).toBeInstanceOf(Function);
   });
 });
+
+// TODO: TEST ACTIONS IN APP 
+// describe("actions dispatch", () => {
+//   const getSecretWordMock = jest.fn();
+
+//   const props = {
+//     getSecretWord: getSecretWordMock,
+//     success: true,
+//     guessedWords: []
+//   };
+//   const store = storeFactory();
+
+//   React.useEffect = jest.spyOn(React, "useEffect").mockImplementation(f => f());
+
+//   // set up app component with getSecretWordMock as the getSecretWord prop
+//   const wrapper = shallow(<UnconnectedApp {...props} store={store}/>);
+
+//   // check to see if our mock ran
+//   const getSecretWordCallCount = getSecretWordMock.mock.calls.length;
+
+//   expect(getSecretWordCallCount).toBe(1);
+// });
