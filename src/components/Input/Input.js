@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import  {guessWord}  from "../../store/actions/index";
+import { guessWord } from "../../store/actions/index";
 
-
-const Input = ({ success, guessWord }) => {
+export const UnconnectedInput = ({ success, guessWord }) => {
   const contents = success ? null : (
     <form className='form-inline'>
       <input
@@ -17,7 +16,8 @@ const Input = ({ success, guessWord }) => {
       <button
         data-test='submit-button'
         className='btn btn-primary mb-2'
-        type='submit'>
+        type='submit'
+        onClick={() => guessWord("train")}>
         Submit
       </button>
     </form>
@@ -29,4 +29,4 @@ const mapStateToProps = ({ success }) => {
   return { success };
 };
 
-export default connect(mapStateToProps, {guessWord})(Input);
+export default connect(mapStateToProps, { guessWord })(UnconnectedInput);
